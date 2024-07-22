@@ -1,0 +1,34 @@
+<section class="user-input-container">
+  <button class="button" (click)="createImage()">
+    <span class="material-symbols-outlined"> palette </span>
+  </button>
+  <label for="file-upload" class="button">
+    <span class="material-symbols-outlined"> upload_file </span>
+  </label>
+  <input
+    id="file-upload"
+    type="file"
+    class="button-upload"
+    style="display: none"
+    (change)="onFileSelected($event)"
+  />
+
+  <input
+    #inputTextField
+    class="input-textfield"
+    [(ngModel)]="message"
+    placeholder="Enter Your Message"
+    type="QuestionDto"
+    (keyup)="onKeyUp($event)"
+  />
+  <button class="button" (click)="sendMessage()">
+    <span class="material-symbols-outlined"> send </span>
+  </button>
+  <button class="button" (click)="startListening()">
+    <span class="material-symbols-outlined"> mic </span>
+  </button>
+</section>
+
+<div id="uploadModal" class="uploadModal">
+  <div id="uploadModal-content" class="uploadModal-content"></div>
+</div>

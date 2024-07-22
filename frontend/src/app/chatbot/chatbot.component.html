@@ -1,0 +1,14 @@
+<div class="background-color-big-screens">
+  <section class="chatbot-container">
+    <app-header class="chatbot-header"></app-header>
+    <app-message-panel
+      class="chatbot-message-panel"
+      [messages]="data"
+    ></app-message-panel>
+    <hr class="hr-above-textarea" />
+    <app-user-input
+      (sendMessageEmitter)="getMessage($event)"
+      (sendImageEmitter)="getImage($event)"
+    ></app-user-input>
+  </section>
+</div>

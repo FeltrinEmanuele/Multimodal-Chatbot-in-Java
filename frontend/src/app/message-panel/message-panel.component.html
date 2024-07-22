@@ -1,0 +1,34 @@
+<section #scrollMe class="message-panel-container">
+  <ul class="ul-list-message-panel">
+    @for (message of messages; track message.id){ @if (message.sender ===
+    "user") {
+    <li class="il-list-message-panel" style="justify-content: flex-end">
+      <div class="message-list-message-panel">
+        @if (message.content.startsWith('data:image')) {
+        <img [src]="message.content" alt="User image" />
+        } @else {
+        {{ message.content }}
+        }
+      </div>
+      <div class="user-list-message-panel">
+        <span class="material-symbols-outlined"> person </span>
+      </div>
+    </li>
+    } @else {
+    <li class="il-list-message-panel" style="justify-content: flex-start">
+      <div class="assistant-list-message-panel">
+        <span class="material-symbols-outlined"> smart_toy </span>
+      </div>
+      <div class="message-list-message-panel">
+        @if (message.content.startsWith('data:image')) {
+        <img [src]="message.content" alt="Server image" />
+        } @else {
+        {{ message.content }}
+        }
+      </div>
+    </li>
+    } } @empty {
+    <div class="div-no-messages">No messages yet</div>
+    }
+  </ul>
+</section>
